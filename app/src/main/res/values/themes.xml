@@ -1,0 +1,47 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.SeeOn" parent="Theme.Material3.DayNight.NoActionBar">
+
+    </style>
+
+    <style name="editText">
+        <item name="android:background">@drawable/viewpadding</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:textColorHint">@color/textColor</item>
+        <item name="android:fontFamily">@font/rubik</item>
+    </style>
+
+    <style name="regularButton">
+        <item name="android:background">@drawable/viewpadding</item>
+        <item name="backgroundTint">@color/purple</item>
+        <item name="android:layout_width">335dp</item>
+        <item name="android:height">60dp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="fontFamily">@font/rubik</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="iconButton">
+        <item name="android:background">@drawable/viewpadding</item>
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">60dp</item>
+    </style>
+
+    <style name="message">
+        <item name="android:background">@drawable/message</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingRight">24dp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textColorHint">@color/textColor</item>
+        <item name="android:fontFamily">@font/rubik</item>
+    </style>
+
+    <style name="Theme.SeeOn" parent="Base.Theme.SeeOn" />
+</resources>

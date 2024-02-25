@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "670782481263",
+    "project_id": "seeon-8eade",
+    "storage_bucket": "seeon-8eade.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670782481263:android:a6a7a92ff187a3152f3e9a",
+        "android_client_info": {
+          "package_name": "com.example.seeon"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9XOpoxwhUsMLEf65i2jV91yRuY-Z5BOo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

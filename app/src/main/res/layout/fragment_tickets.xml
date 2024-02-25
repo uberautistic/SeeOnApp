@@ -1,0 +1,76 @@
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkgrey">
+    <androidx.constraintlayout.widget.ConstraintLayout 
+        android:layout_width="409dp"
+        android:layout_height="match_parent" 
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" 
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="335dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView 
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/avenirblack"
+                    android:text="Мои билеты"
+                    android:textColor="@color/textColor"
+                    android:textSize="24sp"
+                    android:layout_marginTop="12dp"/>
+                <ImageButton 
+                    android:id="@+id/backButton" 
+                    android:layout_width="48dp" 
+                    android:layout_height="48dp" 
+                    android:background="@drawable/menubtn"
+                    android:contentDescription="Назад"/>
+            </LinearLayout>
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="40dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="480dp"
+                android:padding="40dp"
+                android:background="@drawable/tickets_scrollview_back"
+                android:layout_marginBottom="24dp">
+
+            </androidx.recyclerview.widget.RecyclerView>
+            <TextView 
+                style="@style/message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Нет билетов"
+                android:layout_marginLeft="96.5dp"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
