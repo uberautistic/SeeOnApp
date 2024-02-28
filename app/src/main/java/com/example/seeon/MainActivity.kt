@@ -6,9 +6,11 @@ import androidx.core.content.ContextCompat
 import com.example.seeon.adapter.PagerAdapter
 import com.example.seeon.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var mAuth: FirebaseAuth
     private val tabIconsId: Array<Int> = arrayOf(
         R.drawable.home_icon,
         R.drawable.ticket_icon,
@@ -19,6 +21,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         initial()
     }
+
+    override fun onStart() {
+        super.onStart()
+        initFunc()
+    }
+
+    private fun initFunc() {
+        if(mAuth.currentUser==null){
+            replaceActivity(LoginActivity())
+            this.finish()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+    }
     private fun getTintIconColor(active: Boolean):Int{
         var colorId=0
         if (active)
@@ -26,10 +45,9 @@ class MainActivity : AppCompatActivity() {
         else
             colorId= ContextCompat.getColor(this,R.color.white)
         return colorId
-
-    //popBackStack
     }
     private fun initial() {
+        mAuth= FirebaseAuth.getInstance()
         binding.viewPager.adapter=PagerAdapter(this)
         TabLayoutMediator(binding.tabLayout,binding.viewPager){
             tab, pos->

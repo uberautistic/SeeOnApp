@@ -2,7 +2,7 @@
 
     <style name="Theme.SeeOn" parent="Base.Theme.SeeOn">
         <item name="android:navigationBarColor">@color/darkgrey</item>
-        <item name="android:statusBarColor">@color/darkgrey</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
     </style>
 </resources>

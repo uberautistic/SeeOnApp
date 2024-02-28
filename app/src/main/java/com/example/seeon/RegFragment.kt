@@ -18,11 +18,9 @@ class RegFragment : Fragment() {
     ): View {
         binding = FragmentRegBinding.inflate(inflater, container, false)
         return binding.root
-
     }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onResume() {
+        super.onResume()
         binding.backButton.setOnClickListener {
             findNavController().popBackStack()
         }
