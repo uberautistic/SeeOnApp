@@ -4,52 +4,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_gravity="center"
     android:layout_height="match_parent"
-    android:background="@color/darkgrey"
-    android:id="@+id/parentLayout"
-
-    >
-
+    tools:context=".regfragments.RegPhoneFragment"
+    android:background="@color/darkGrey">
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="409dp"
+        android:paddingTop="40dp"
+        android:layout_width="335dp"
         android:layout_height="match_parent"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            style="@style/regularButton"
-            android:id="@+id/enterButton"
-            android:layout_width="335dp"
-            android:layout_height="60dp"
-            android:text="Войти"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintEnd_toEndOf="parent">
         <LinearLayout
-            android:layout_width="335dp"
+            android:layout_width="match_parent"
+            android:id="@+id/indicatorLayout"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
+                    android:orientation="vertical"
+                    >
                     <TextView
                         android:id="@+id/textView"
                         android:layout_width="wrap_content"
@@ -57,46 +37,75 @@
                         android:layout_marginBottom="0dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/avenirblack"
-
-                        android:text="Добро пожаловать"
+                        android:text="Регистрация"
                         android:textColor="@color/textColor"
                         android:textSize="24sp" />
-
                     <TextView
                         android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/rubik"
-                        android:text="рады тебя видеть"
+                        android:text="твоего аккаунта"
+                        android:layout_marginBottom="24dp"
                         android:textColor="@color/textColor"
-                        android:textSize="16sp" />
-
+                        android:textSize="20sp" />
                 </LinearLayout>
-
-                <ImageButton
-                    android:id="@+id/backButton"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/buttonback"
-                    android:contentDescription="Назад"
-                    android:src="@drawable/cross" />
-
             </LinearLayout>
-
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="220dp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="12dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/firstStageBar"
+                    android:background="@drawable/inactive_bar"
+                    android:backgroundTint="@color/lightGreen"
+                    android:layout_width="101dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_height="match_parent"
+                    />
+                <TextView
+                    android:id="@+id/secondStageBar"
+                    android:background="@drawable/inactive_bar"
+                    android:backgroundTint="@color/lightGreen"
+                    android:layout_width="101dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_height="match_parent"
+                    />
+
+                <TextView
+                    android:id="@+id/thirdStageBar"
+                    android:background="@drawable/inactive_bar"
+                    android:layout_width="101dp"
+                    android:layout_height="match_parent"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/indicatorLayout">
+
             <LinearLayout
                 android:id="@+id/inputLayout"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
                 <LinearLayout
                     android:id="@+id/inputPhoneLayout"
-                    android:layout_width="match_parent"
+                    android:layout_width="335dp"
+                    android:layout_marginTop="40dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/viewpadding">
                     <TextView
                         android:layout_width="60dp"
@@ -107,62 +116,76 @@
                         android:textColor="@color/textColor"
                         android:fontFamily="@font/rubik"/>
                     <EditText
+                        android:maxLength="10"
                         style="@style/editText"
-                        android:paddingLeft="0dp"
-                        android:id="@+id/inputPhoneNumber"
-                        android:layout_width="match_parent"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:id="@+id/userPhoneNumberET"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:hint="999 888 77 66"
+                        android:hint="@string/phoneETHintText"
                         android:autofillHints="phone"
                         android:ems="10"
-                        android:inputType="phone" />
-                </LinearLayout>
+                        android:inputType="number" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"/>
+                </LinearLayout>
                 <EditText
+                    android:inputType="textPassword"
+                    android:id="@+id/userPasswordET"
                     style="@style/editText"
-                    android:id="@+id/inputPassword"
+                    android:hint="@string/passwordETHintText"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
-                    android:hint="Пароль"
-                    android:autofillHints="password"
-                    android:layout_marginBottom="28dp"
-                    android:ems="10"
-                    android:inputType="textPassword" />
-                <LinearLayout
-                    android:id="@+id/regLinkLayout"
-                    android:orientation="horizontal"
-                    android:layout_width="248dp"
-                    android:layout_gravity="center"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toTopOf="@id/enterButton"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent">
+                    android:layout_marginBottom="20dp"/>
+                <EditText
+                    android:inputType="textPassword"
+                    android:id="@+id/userPasswordConfirmationET"
+                    style="@style/editText"
+                    android:hint="@string/passwordConfirmationETHintText"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginBottom="20dp"/>
 
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/rubik"
-                        android:textColor="@color/textColor"
-                        android:textSize="16sp"
-                        android:text="Нет аккаунта? " />
-
-                    <TextView
-                        android:id="@+id/regActivityLink"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Зарегистрируйся"
-                        android:textSize="16sp"
-                        android:fontFamily="@font/rubik"
-                        android:textColor="@color/lightgreen"/>
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/errorTV"
+                    android:layout_width="335dp"
+                    android:layout_height="56dp"
+                    android:textColor="@android:color/holo_red_light"
+                    android:gravity="center"
+                    android:fontFamily="@font/rubik"
+                    android:textSize="20sp"
+                    android:text="Пароли не совпадают!"
+                    android:visibility="gone"/>
             </LinearLayout>
-        </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ProgressBar
+            android:id="@+id/SHOW_PROGRESS"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/nextStageB"
+            app:layout_constraintStart_toStartOf="parent"
+            android:indeterminateTint="@color/purple"
+            android:visibility="invisible"
+            android:layout_marginBottom="20dp"/>
+        <Button
+            android:visibility="invisible"
+            android:id="@+id/nextStageB"
+            android:text="@string/nextBTText"
+            android:layout_width="335dp"
+            android:layout_height="56dp"
+            style="@style/regularButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="46dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

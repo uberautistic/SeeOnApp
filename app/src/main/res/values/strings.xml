@@ -3,6 +3,15 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="nextBTText">Далее</string>
+    <string name="passwordETHintText">Пароль</string>
+    <string name="passwordConfirmationETHintText">Подтверждение пароля</string>
+    <string name="phoneETHintText">999 888 77 66</string>
+    <string name="nameETHintText">Имя</string>
+    <string name="selectDateBText">Дата рождения 📅</string>
+    <string name="selectPicHint">Выбери фото</string>
+    <string name="regTV1Text">Регистрация</string>
+    <string name="regTV2Text">твоего аккаунта</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

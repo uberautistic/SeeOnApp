@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/login_graph"
-    app:startDestination="@id/AuthFragment">
+    app:startDestination="@id/userInfoFragment">
     <fragment
-        android:id="@+id/AuthFragment"
+        android:id="@+id/RegPhoneFragment"
         android:name="com.example.seeon.regfragments.RegPhoneFragment"
         tools:layout="@layout/fragment_reg_phone">
         <action
@@ -25,4 +25,13 @@
         android:name="com.example.seeon.regfragments.CodeFragment"
         android:label="fragment_code"
         tools:layout="@layout/fragment_code" />
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="com.example.seeon.regfragments.UserInfoFragment"
+        android:label="fragment_user_info"
+        tools:layout="@layout/fragment_user_info" >
+        <action
+            android:id="@+id/action_userInfoFragment_to_AuthFragment"
+            app:destination="@id/RegPhoneFragment" />
+    </fragment>
 </navigation>

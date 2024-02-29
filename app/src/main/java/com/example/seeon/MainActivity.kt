@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
             tab.setIcon(tabIconsId[pos])
 
         }.attach()
+        //POPBACKSTACK
         /*binding.tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab) {
                 tab.icon?.setTint(getTintIconColor(true))

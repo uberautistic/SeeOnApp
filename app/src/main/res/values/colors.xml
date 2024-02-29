@@ -2,9 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="darkgrey">#151515</color>
+    <color name="darkGrey">#151515</color>
     <color name="purple">#9764D9</color>
     <color name="textColor">#E9E9E9</color>
     <color name="grey">#1F1F1F</color>
-    <color name="lightgreen">#64D98C</color>
+    <color name="lightGreen">#64D98C</color>
+    <color name="lightRed">#D96464</color>
 </resources>
