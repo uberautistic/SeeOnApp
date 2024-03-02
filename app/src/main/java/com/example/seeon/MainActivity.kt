@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        initFunc()
+        //initFunc()
     }
 
     private fun initFunc() {
@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
     }
     private fun initial() {
         mAuth= FirebaseAuth.getInstance()
+        binding.tabLayout.setTabRippleColorResource(R.color.purple)
         binding.viewPager.adapter=PagerAdapter(this)
         TabLayoutMediator(binding.tabLayout,binding.viewPager){
             tab, pos->

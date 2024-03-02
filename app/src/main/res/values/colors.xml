@@ -8,4 +8,10 @@
     <color name="grey">#1F1F1F</color>
     <color name="lightGreen">#64D98C</color>
     <color name="lightRed">#D96464</color>
+    <color name="lightLightBlue">#AAE5F7</color>
+    <color name="lightBlue">#AAB8F7</color>
+    <color name="yellow">#F1F7AA</color>
+    <color name="lightPurple">#DAAAF7</color>
+    <color name="pink">#F7AAAA</color>
+    <color name="lightLightLightBlue">#E3FFFA</color>
 </resources>

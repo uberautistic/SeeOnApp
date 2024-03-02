@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.seeon.MainActivity
 import com.example.seeon.databinding.FragmentCodeBinding
 import com.example.seeon.showToast
@@ -47,6 +48,9 @@ class CodeFragment : Fragment() {
     }
 
     private fun init() {
+        binding.returnB.setOnClickListener {
+            findNavController().popBackStack()
+        }
         mStorage= FirebaseStorage.getInstance().reference
         stringPhotoUri= arguments?.getString("uphoto").toString()
         mAuth= FirebaseAuth.getInstance()

@@ -72,6 +72,9 @@ class RegPhoneFragment : Fragment() {
         }
     }
     private fun initListeners() {
+        binding.returnB.setOnClickListener {
+            findNavController().popBackStack()
+        }
         binding.userPasswordConfirmationET.addTextChangedListener {
             val userPassword= binding.userPasswordET.text.toString()
             val userPasswordConf=binding.userPasswordConfirmationET.text.toString()

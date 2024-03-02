@@ -51,6 +51,16 @@
                         android:textColor="@color/textColor"
                         android:textSize="20sp" />
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="133dp"
+                    android:layout_height="match_parent"/>
+                <ImageButton
+                    android:contentDescription="return"
+                    android:id="@+id/returnB"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/buttonback"
+                    android:src="@drawable/back"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -148,15 +158,17 @@
                     android:layout_marginBottom="20dp"/>
 
                 <TextView
+                    android:background="@drawable/message"
+
                     android:id="@+id/errorTV"
                     android:layout_width="335dp"
                     android:layout_height="56dp"
-                    android:textColor="@android:color/holo_red_light"
+                    android:textColor="@color/textColor"
                     android:gravity="center"
                     android:fontFamily="@font/rubik"
                     android:textSize="20sp"
                     android:text="Пароли не совпадают!"
-                    android:visibility="gone"/>
+                    android:visibility="invisible"/>
             </LinearLayout>
 
 

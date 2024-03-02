@@ -49,6 +49,9 @@ class UserInfoFragment : Fragment() {
             myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH)).show()
     }
     private fun initListeners(){
+        binding.returnB.setOnClickListener {
+            findNavController().popBackStack()
+        }
         binding.selectPicButton.setOnClickListener{
             binding.progressBar.visibility=View.VISIBLE
             selectPhotoUser()
