@@ -39,11 +39,10 @@ class MainActivity : AppCompatActivity() {
 
     }
     private fun getTintIconColor(active: Boolean):Int{
-        var colorId=0
-        if (active)
-            colorId= ContextCompat.getColor(this,R.color.purple)
+        val colorId = if (active)
+            ContextCompat.getColor(this,R.color.purple)
         else
-            colorId= ContextCompat.getColor(this,R.color.white)
+            ContextCompat.getColor(this,R.color.white)
         return colorId
     }
     private fun initial() {
