@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="335dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="40dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,7 +18,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:id="@+id/linearlayout"
@@ -93,6 +93,36 @@
                     app:layout_constraintTop_toBottomOf="@id/genresTV"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"/>
+
+                <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+                    android:layout_width="335dp"
+                    android:layout_height="162dp"
+                    android:id="@+id/filmsRecycler"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    app:carouselType="SHOWCASE"
+                    app:infiniteCarousel="true"
+                    app:showNavigationButtons="false"
+                    app:showCaption="false"
+                    app:autoPlay="true"
+                    app:autoPlayDelay="7000"
+                    app:touchToPause="true"
+                    app:scalingFactor=".4"
+                    app:carouselBackground="@android:color/transparent"
+                    app:showBottomShadow="false"
+                    android:translationZ="8dp"
+                    app:autoWidthFixing="true"
+                    app:flow_maxElementsWrap="3"
+                    app:showTopShadow="false"
+                    app:carouselPadding="0dp"
+                    app:carouselGravity="CENTER"
+                    app:imageScaleType="centerInside"
+                    app:barrierAllowsGoneWidgets="true"
+                    app:scaleOnScroll="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
