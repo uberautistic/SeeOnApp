@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/mainGroup"
+        android:menuCategory="system">
+        <item android:id="@+id/accountMenuItem"
+            android:title="Управление аккаунтом"/>
+        <item android:id="@+id/notificationsMenuItem"
+            android:title="Уведомления"/>
+        <item android:id="@+id/cinemaMenuItem"
+            android:title="Кинотеатр"/>
+        <item android:id="@+id/savedMenuItem"
+            android:title="Сохраненные" />
+        <item android:id="@+id/supportMenuItem"
+            android:title="Поддержка"/>
+        <item android:id="@+id/logoutMenuItem"
+            android:title="Выйти"/>
+    </group>
+</menu>

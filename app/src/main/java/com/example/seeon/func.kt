@@ -21,11 +21,3 @@ fun Fragment.replaceActivity(activity: AppCompatActivity){
     requireActivity().finish()
 }
 
-fun Fragment.replaceFragment(fragment: Fragment){
-    this.parentFragmentManager.beginTransaction()
-        .addToBackStack(null)
-        .replace(R.id.dataContainer,
-            fragment
-        ).commit()
-
-}

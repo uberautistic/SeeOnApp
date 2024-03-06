@@ -22,8 +22,8 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false"
-            android:theme="@style/Theme.SeeOn" >
-
+            android:theme="@style/Theme.SeeOn"
+            android:windowSoftInputMode="adjustResize">
         </activity>
         <activity
             android:name=".MainActivity"

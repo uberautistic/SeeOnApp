@@ -49,6 +49,7 @@ class UserInfoFragment : Fragment() {
             myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH)).show()
     }
     private fun initListeners(){
+        stringPhotoUri="0"
         binding.returnB.setOnClickListener {
             findNavController().popBackStack()
         }

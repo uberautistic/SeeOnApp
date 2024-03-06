@@ -12,7 +12,4 @@
     <string name="selectPicHint">Выбери фото</string>
     <string name="regTV1Text">Регистрация</string>
     <string name="regTV2Text">твоего аккаунта</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
 </resources>

@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        //initFunc()
+        initFunc()
     }
 
     private fun initFunc() {
@@ -33,21 +33,17 @@ class MainActivity : AppCompatActivity() {
             this.finish()
         }
     }
-
-    override fun onResume() {
-        super.onResume()
-
-    }
-    private fun getTintIconColor(active: Boolean):Int{
-        val colorId = if (active)
-            ContextCompat.getColor(this,R.color.purple)
+    private fun getTintIconColor(active: Boolean): Int {
+        return if (active)
+            ContextCompat.getColor(this, R.color.purple)
         else
-            ContextCompat.getColor(this,R.color.white)
-        return colorId
+            ContextCompat.getColor(this, R.color.white)
     }
+
     private fun initial() {
         mAuth= FirebaseAuth.getInstance()
         binding.tabLayout.setTabRippleColorResource(R.color.purple)
+        binding.viewPager.isUserInputEnabled=false
         binding.viewPager.adapter=PagerAdapter(this)
         TabLayoutMediator(binding.tabLayout,binding.viewPager){
             tab, pos->

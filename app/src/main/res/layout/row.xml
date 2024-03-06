@@ -1,6 +1,7 @@
 
 
-    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         app:cardBackgroundColor="@android:color/transparent"
         android:layout_marginStart="4dp"

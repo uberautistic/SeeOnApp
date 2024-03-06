@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_gravity="center"
     android:layout_height="match_parent"
-    tools:context=".regfragments.RegPhoneFragment"
+    tools:context=".loginfragments.PhoneNumberFragment"
     android:background="@color/darkGrey">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:paddingTop="40dp"
@@ -21,11 +21,12 @@
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content">
                 <LinearLayout
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -37,7 +38,7 @@
                         android:layout_marginBottom="0dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/avenirblack"
-                        android:text="Регистрация"
+                        android:text="Добро пожаловать"
                         android:textColor="@color/textColor"
                         android:textSize="24sp" />
                     <TextView
@@ -46,50 +47,23 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/rubik"
-                        android:text="твоего аккаунта"
+                        android:text="рады тебя видеть"
                         android:layout_marginBottom="24dp"
                         android:textColor="@color/textColor"
                         android:textSize="20sp" />
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="133dp"
-                    android:layout_height="match_parent"/>
+
                 <ImageButton
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     android:contentDescription="return"
                     android:id="@+id/returnB"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:background="@drawable/buttonback"
-                    android:src="@drawable/back"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="12dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/firstStageBar"
-                    android:background="@drawable/inactive_bar"
-                    android:backgroundTint="@color/lightGreen"
-                    android:layout_width="101dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_height="match_parent"
-                    />
-                <TextView
-                    android:id="@+id/secondStageBar"
-                    android:background="@drawable/inactive_bar"
-                    android:backgroundTint="@color/lightGreen"
-                    android:layout_width="101dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_height="match_parent"
-                    />
+                    android:src="@drawable/cross"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/thirdStageBar"
-                    android:background="@drawable/inactive_bar"
-                    android:layout_width="101dp"
-                    android:layout_height="match_parent"
-                    />
-            </LinearLayout>
         </LinearLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -105,40 +79,64 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                >
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
                 <LinearLayout
                     android:id="@+id/inputPhoneLayout"
                     android:layout_width="335dp"
-                    android:layout_marginTop="40dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:layout_marginTop="140dp"
                     android:layout_marginBottom="20dp"
-                    android:background="@drawable/viewpadding">
+                    android:background="@drawable/viewpadding"
+                    android:orientation="horizontal">
                     <TextView
                         android:layout_width="60dp"
                         android:layout_height="56dp"
-                        android:text="+7"
-                        android:textSize="16sp"
+                        android:fontFamily="@font/rubik"
                         android:gravity="center"
+                        android:text="+7"
                         android:textColor="@color/textColor"
-                        android:fontFamily="@font/rubik"/>
+                        android:textSize="16sp" />
                     <EditText
-                        android:maxLength="10"
-                        style="@style/editText"
-                        android:paddingStart="0dp"
-                        android:paddingEnd="0dp"
                         android:id="@+id/userPhoneNumberET"
+                        style="@style/editText"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:hint="@string/phoneETHintText"
                         android:autofillHints="phone"
                         android:ems="10"
-                        android:inputType="number|phone" />
+                        android:hint="@string/phoneETHintText"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp" />
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Нет аккаунта?"
+                        android:textSize="16sp"
+                        android:layout_marginStart="33.5dp"
+                        android:textColor="@color/textColor"
+                        android:fontFamily="@font/rubik"
+                        />
+                    <TextView
+                        android:id="@+id/toRegTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" Зарегистрируйся"
+                        android:textSize="16sp"
+                        android:textColor="@color/lightGreen"
+                        android:fontFamily="@font/rubik"
+                        />
+                </LinearLayout>
+
             </LinearLayout>
 
 

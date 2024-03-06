@@ -3,22 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/login_graph"
-    app:startDestination="@id/userInfoFragment">
+    app:startDestination="@id/phoneNumberFragment">
     <fragment
         android:id="@+id/RegPhoneFragment"
         android:name="com.example.seeon.regfragments.RegPhoneFragment"
         tools:layout="@layout/fragment_reg_phone">
         <action
-            android:id="@+id/action_AuthFragment_to_RegFragment"
-            app:destination="@id/RegFragment" />
-        <action
             android:id="@+id/action_AuthFragment_to_codeFragment"
             app:destination="@id/codeFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/RegFragment"
-        android:name="com.example.seeon.RegFragment"
-        tools:layout="@layout/fragment_reg">
     </fragment>
     <fragment
         android:id="@+id/codeFragment"
@@ -34,4 +26,21 @@
             android:id="@+id/action_userInfoFragment_to_AuthFragment"
             app:destination="@id/RegPhoneFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/phoneNumberFragment"
+        android:name="com.example.seeon.loginfragments.PhoneNumberFragment"
+        tools:layout="@layout/fragment_phone_number"
+        android:label="PhoneNumberFragment" >
+        <action
+            android:id="@+id/action_phoneNumberFragment_to_loginCodeFragment"
+            app:destination="@id/loginCodeFragment" />
+        <action
+            android:id="@+id/action_phoneNumberFragment_to_userInfoFragment"
+            app:destination="@id/userInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginCodeFragment"
+        tools:layout="@layout/fragment_login_code"
+        android:name="com.example.seeon.loginfragments.LoginCodeFragment"
+        android:label="LoginCodeFragment" />
 </navigation>
