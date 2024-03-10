@@ -7,10 +7,15 @@ import com.example.seeon.adapter.PagerAdapter
 import com.example.seeon.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var phoneNubmer: String
+    private lateinit var mDataBase: DatabaseReference
+    private lateinit var userTableReference: DatabaseReference
     private val tabIconsId: Array<Int> = arrayOf(
         R.drawable.home_icon,
         R.drawable.ticket_icon,
@@ -25,12 +30,15 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         initFunc()
+        phoneNubmer=mAuth.currentUser?.phoneNumber.toString()
     }
 
     private fun initFunc() {
         if(mAuth.currentUser==null){
             replaceActivity(LoginActivity())
             this.finish()
+        }else{
+            userTableReference=FirebaseDatabase.getInstance().getReference("users")
         }
     }
     private fun getTintIconColor(active: Boolean): Int {
@@ -48,7 +56,6 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(binding.tabLayout,binding.viewPager){
             tab, pos->
             tab.setIcon(tabIconsId[pos])
-
         }.attach()
         //POPBACKSTACK
         /*binding.tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{

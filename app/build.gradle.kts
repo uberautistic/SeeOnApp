@@ -39,6 +39,7 @@ android {
 
 dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
+    implementation ("com.squareup.picasso:picasso:2.8")
     implementation("androidx.browser:browser:1.7.0")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

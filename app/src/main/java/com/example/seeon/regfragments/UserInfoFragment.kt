@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.seeon.R
@@ -28,11 +29,13 @@ class UserInfoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        stringPhotoUri="0"
         binding= FragmentUserInfoBinding.inflate(inflater, container,false)
         return binding.root
     }
     override fun onStart() {
         super.onStart()
+
         initListeners()
     }
     private fun pickDate(){
@@ -47,9 +50,14 @@ class UserInfoFragment : Fragment() {
         }
         DatePickerDialog(requireActivity(),datePicker, myCalendar.get(Calendar.YEAR),
             myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH)).show()
+        if (binding.userNameET.text.isNotEmpty())
+            binding.nextStageB.visibility=View.VISIBLE
     }
     private fun initListeners(){
-        stringPhotoUri="0"
+        binding.userNameET.addTextChangedListener {
+            if ((binding.userNameET.text.length>=2)&&(binding.selectBirthDateB.text!="Дата рождения \uD83D\uDCC5"))
+                binding.nextStageB.visibility=View.VISIBLE
+        }
         binding.returnB.setOnClickListener {
             findNavController().popBackStack()
         }

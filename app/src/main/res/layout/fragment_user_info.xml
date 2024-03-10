@@ -163,6 +163,7 @@
             app:layout_constraintBottom_toTopOf="@id/nextStageB"
             android:layout_marginBottom="20dp"/>
         <Button
+            android:visibility="invisible"
             android:id="@+id/nextStageB"
             android:text="@string/nextBTText"
             android:layout_width="335dp"

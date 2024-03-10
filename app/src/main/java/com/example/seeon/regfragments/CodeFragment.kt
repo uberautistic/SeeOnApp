@@ -2,13 +2,16 @@ package com.example.seeon.regfragments
 
 import android.net.Uri
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.seeon.MainActivity
+import com.example.seeon.R
 import com.example.seeon.databinding.FragmentCodeBinding
 import com.example.seeon.replaceActivity
 import com.example.seeon.showToast
@@ -44,8 +47,21 @@ class CodeFragment : Fragment() {
         super.onStart()
         init()
     }
-    private fun init() {
 
+    override fun onResume() {
+        super.onResume()
+        val timer = object:  CountDownTimer(60000, 1000){
+            override fun onTick(millisUntilFinished: Long) {
+                binding.resendCodeTV.text="Отправить код еще раз (${millisUntilFinished/1000})"
+            }
+            override fun onFinish() {
+                binding.resendCodeTV.text="Отправить код еще раз"
+                binding.resendCodeTV.setTextColor(ContextCompat.getColor(requireContext(),R.color.textColor))
+            }
+        }
+        timer.start()
+    }
+    private fun init() {
         binding.returnB.setOnClickListener {
             findNavController().popBackStack()
         }
@@ -65,6 +81,9 @@ class CodeFragment : Fragment() {
         }
         binding.userPhoneTV.text=getFormattedUserPhoneNumber(phoneNumber)
     }
+
+
+
     private fun getFormattedUserPhoneNumber(phoneNumber: String): String {
         val group1 = listOf(2, 3, 4)
         val group2 = listOf(5, 6, 7)
@@ -74,41 +93,47 @@ class CodeFragment : Fragment() {
                 phoneNumber.slice(group2) + "-" + phoneNumber.slice(group3) +
                 "-" + phoneNumber.slice(group4)
     }
+    private fun registerUser(uid: String){
+        val userDataMap= mutableMapOf<String,Any>()
+        userDataMap["uid"]=uid
+        userDataMap["uphone"]=phoneNumber
+        userDataMap["uname"]=name
+        userDataMap["uphoto"]=userPhotoURL
+        userDataMap["ubirthdate"]=birthdate
+        mDataBase.child("users").child(phoneNumber).updateChildren(userDataMap).addOnCompleteListener { task3->
+            if(task3.isSuccessful){
+                showToast(requireActivity(),"Регистрация прошла успешно!")
+                replaceActivity(MainActivity())
+            } else showToast(requireActivity(),task3.exception?.message.toString())
+        }
+    }
     private fun enterCode(code: String) {
         val credential=PhoneAuthProvider.getCredential(id, code)
         mAuth.signInWithCredential(credential).addOnCompleteListener{task1->
             if(task1.isSuccessful){
-                val userDataMap= mutableMapOf<String,Any>()
                 val uid=mAuth.currentUser?.uid.toString()
-                val path=mStorage.child("profile_pictures")
-                    .child(uid)
                 if (stringPhotoUri=="0"){
                     userPhotoURL="https://firebasestorage.googleapis.com/v0/b/seeon-8eade.appspot.com/o/profile_pictures%2FdefaultPFP.png?alt=media&token=3a9c56db-1fe8-4e8c-adc3-27f627f61823"
+                    registerUser(uid)
                 }else {
+                    val path=mStorage.child("profile_pictures")
+                        .child(uid)
                     val photoUri= Uri.parse(stringPhotoUri)
                     path.putFile(photoUri).addOnCompleteListener{task2->
                         if (task2.isSuccessful){
                             showToast(requireActivity(),"Фото успешно загружено")
                             path.downloadUrl.addOnCompleteListener {
-                                if (it.isSuccessful)
-                                    userPhotoURL= it.result.toString()
+                                if (it.isSuccessful){
+                                    userPhotoURL=it.result.toString()
+                                    registerUser(uid)
+                                }
                             }
                         }else{
                             showToast(requireActivity(),task2.exception.toString())
                         }
                     }
                 }
-                userDataMap["uid"]=uid
-                userDataMap["uphone"]=phoneNumber
-                userDataMap["uname"]=name
-                userDataMap["uphoto"]=userPhotoURL
-                userDataMap["ubirthdate"]=birthdate
-                mDataBase.child("users").child(phoneNumber).updateChildren(userDataMap).addOnCompleteListener { task3->
-                    if(task3.isSuccessful){
-                        showToast(requireActivity(),"Регистрация прошла успешно!")
-                        replaceActivity(MainActivity())
-                    } else showToast(requireActivity(),task3.exception?.message.toString())
-                }
+
                 /*val photoUri= Uri.parse(stringPhotoUri)
                 path.putFile(photoUri).addOnCompleteListener{task2->
                     if (task2.isSuccessful){

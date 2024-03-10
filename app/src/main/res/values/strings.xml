@@ -12,4 +12,9 @@
     <string name="selectPicHint">Выбери фото</string>
     <string name="regTV1Text">Регистрация</string>
     <string name="regTV2Text">твоего аккаунта</string>
+    <string name="startText1">Уникальный сервис для бронирования билетов в кинотеатрах</string>
+    <string name="startText2">Удобный поиск кинотеатров в твоем городе</string>
+    <string name="startText3">Комфортная оплата билетов в любое время</string>
+    <string name="welcomeText">Добро пожаловать \nв SeeOn</string>
+    <string name="skipText">Пропустить</string>
 </resources>

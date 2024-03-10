@@ -15,6 +15,7 @@
         <item name="android:textColorHint">@color/textColor</item>
         <item name="android:fontFamily">@font/rubik</item>
     </style>
+
     <style name="regularButton">
         <item name="android:background">@drawable/viewpadding</item>
         <item name="backgroundTint">@color/purple</item>

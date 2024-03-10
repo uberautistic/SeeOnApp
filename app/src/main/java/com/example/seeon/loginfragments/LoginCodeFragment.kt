@@ -1,13 +1,16 @@
 package com.example.seeon.loginfragments
 
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.seeon.MainActivity
+import com.example.seeon.R
 import com.example.seeon.databinding.FragmentLoginCodeBinding
 import com.example.seeon.replaceActivity
 import com.example.seeon.showToast
@@ -32,6 +35,19 @@ class LoginCodeFragment : Fragment() {
         initListeners()
     }
 
+    override fun onResume() {
+        super.onResume()
+        val timer = object:  CountDownTimer(60000, 1000){
+            override fun onTick(millisUntilFinished: Long) {
+                binding.resendCodeTV.text="Отправить код еще раз (${millisUntilFinished/1000})"
+            }
+            override fun onFinish() {
+                binding.resendCodeTV.text="Отправить код еще раз"
+                binding.resendCodeTV.setTextColor(ContextCompat.getColor(requireContext(), R.color.textColor))
+            }
+        }
+        timer.start()
+    }
     private fun initListeners() {
         binding.inputCode.addTextChangedListener {
             val code= binding.inputCode.text.toString()
