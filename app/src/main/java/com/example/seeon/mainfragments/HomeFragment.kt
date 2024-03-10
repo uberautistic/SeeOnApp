@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +19,11 @@ import com.example.seeon.databinding.FragmentHomeBinding
 import com.example.seeon.replaceActivity
 import com.example.seeon.showToast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.imaginativeworld.whynotimagecarousel.listener.CarouselListener
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 import org.imaginativeworld.whynotimagecarousel.utils.setImage
@@ -28,10 +34,12 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var genresList : ArrayList<Int>
     private lateinit var filmsList : ArrayList<Int>
+    private lateinit var mUserTable: DatabaseReference
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         return binding.root
@@ -39,11 +47,19 @@ class HomeFragment : Fragment() {
     }
 
     private fun init() {
+
         registerForContextMenu(binding.menuButton)
         binding.menuButton.setOnClickListener {
             requireActivity().openContextMenu(binding.menuButton)
         }
         mAuth= FirebaseAuth.getInstance()
+        val userPhone= mAuth.currentUser?.phoneNumber
+        mUserTable= FirebaseDatabase.getInstance().getReference("users")
+        mUserTable.child(userPhone!!).get().addOnSuccessListener {
+            if (it.exists()){
+                binding.helloTV.text=ContextCompat.getString(requireContext(),R.string.helloTV)+it.child("uname").value.toString()
+            }
+        }
         binding.genresRecycler.layoutManager= LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
         initGenresList()
         initFilmsList()
@@ -72,7 +88,7 @@ class HomeFragment : Fragment() {
 
 
                 currentBinding.imageView.apply {
-                    //scaleType= ImageView.ScaleType.CENTER
+
                     setImage(item)
                 }
                 currentBinding.imageView.setOnClickListener {
@@ -138,8 +154,9 @@ class HomeFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        init()
-
+        CoroutineScope(Dispatchers.Main).launch{
+            init()
+        }
     }
 
 }

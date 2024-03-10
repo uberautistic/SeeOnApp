@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/app_background"
+    tools:context=".splashfragments.StartFragment">
+    <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+        android:id="@+id/startRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:showNavigationButtons="false"
+        app:infiniteCarousel="false"
+        app:indicatorMargin="114dp"
+        app:showIndicator="true"
+        app:showCaption="false"
+        app:carouselType="BLOCK"
+        app:showTopShadow="false"
+        app:showBottomShadow="false"
+        />
+    <TextView
+        android:id="@+id/skipTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/skipText"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        android:fontFamily="@font/rubik"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/nextB"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="60dp">
+
+            <TextView
+                android:layout_width="335dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/avenirblack"
+                android:text="@string/welcomeText"
+                android:textColor="@color/textColor"
+                android:textSize="28sp"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/startTV"
+                android:layout_width="335dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/rubik"
+                android:text="@string/startText1"
+                android:textColor="@color/textColor"
+                android:textSize="16sp"
+                tools:ignore="TextSizeCheck" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/nextB"
+            android:layout_width="335dp"
+            android:layout_height="60dp"
+            style="@style/regularButton"
+            android:text="@string/nextBTText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="40dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

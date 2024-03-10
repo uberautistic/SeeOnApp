@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.seeon.MainActivity
 import com.example.seeon.R
 import com.example.seeon.databinding.FragmentCodeBinding
+import com.example.seeon.getFormattedUserPhoneNumber
 import com.example.seeon.replaceActivity
 import com.example.seeon.showToast
 import com.google.firebase.auth.FirebaseAuth
@@ -80,18 +81,6 @@ class CodeFragment : Fragment() {
                 enterCode(code)
         }
         binding.userPhoneTV.text=getFormattedUserPhoneNumber(phoneNumber)
-    }
-
-
-
-    private fun getFormattedUserPhoneNumber(phoneNumber: String): String {
-        val group1 = listOf(2, 3, 4)
-        val group2 = listOf(5, 6, 7)
-        val group3 = listOf(8, 9)
-        val group4 = listOf(10, 11)
-        return "+7 (" + phoneNumber.slice(group1) + ") " +
-                phoneNumber.slice(group2) + "-" + phoneNumber.slice(group3) +
-                "-" + phoneNumber.slice(group4)
     }
     private fun registerUser(uid: String){
         val userDataMap= mutableMapOf<String,Any>()

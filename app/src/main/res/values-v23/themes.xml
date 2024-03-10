@@ -4,5 +4,6 @@
         <item name="android:navigationBarColor">@color/darkGrey</item>
         <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
         <item name="colorAccent">@color/purple</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 </resources>

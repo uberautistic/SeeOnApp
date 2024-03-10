@@ -17,4 +17,5 @@
     <string name="startText3">Комфортная оплата билетов в любое время</string>
     <string name="welcomeText">Добро пожаловать \nв SeeOn</string>
     <string name="skipText">Пропустить</string>
+    <string name="helloTV">Привет,</string>
 </resources>

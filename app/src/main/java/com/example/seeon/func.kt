@@ -16,6 +16,16 @@ fun Fragment.showToast(context: Context, msg : String){
      startActivity(intent)
      this.finish()
  }
+
+    fun Fragment.getFormattedUserPhoneNumber(phoneNumber: String): String {
+    val group1 = listOf(2, 3, 4)
+    val group2 = listOf(5, 6, 7)
+    val group3 = listOf(8, 9)
+    val group4 = listOf(10, 11)
+    return "+7 (" + phoneNumber.slice(group1) + ") " +
+            phoneNumber.slice(group2) + "-" + phoneNumber.slice(group3) +
+            "-" + phoneNumber.slice(group4)
+    }
 fun Fragment.hideKeyboard() {
     view?.let { activity?.hideKeyboard(it) }
 }

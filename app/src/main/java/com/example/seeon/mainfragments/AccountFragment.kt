@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.seeon.LoginActivity
 import com.example.seeon.R
 import com.example.seeon.databinding.FragmentAccountBinding
+import com.example.seeon.getFormattedUserPhoneNumber
 import com.example.seeon.models.User
 import com.example.seeon.replaceActivity
 import com.example.seeon.showToast
@@ -43,7 +44,7 @@ class AccountFragment : Fragment() {
                 userName=it.child("uname").value.toString()
                 userPhotoURL=it.child("uphoto").value.toString()
                 binding.userNameTV.setText(userName)
-                binding.userPhoneNumberTV.setText(userPhone)
+                binding.userPhoneNumberTV.setText(getFormattedUserPhoneNumber(userPhone))
                 Picasso.get()
                     .load(userPhotoURL)
                     .placeholder(R.color.grey)

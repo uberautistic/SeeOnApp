@@ -31,11 +31,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/helloTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/avenirblack"
-                    android:text="Привет, %имя%"
+                    android:text="@string/helloTV"
                     android:textColor="@color/textColor"
                     android:textSize="24sp" />
 
