@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:layout_height="match_parent"
     tools:context=".loginfragments.PhoneNumberFragment"
-    android:background="@color/darkGrey">
+    android:background="@drawable/app_background">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:paddingTop="40dp"
         android:layout_width="335dp"
@@ -38,7 +38,7 @@
                         android:layout_marginBottom="0dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/avenirblack"
-                        android:text="Добро пожаловать"
+                        android:text="@string/LoginTV1Text"
                         android:textColor="@color/textColor"
                         android:textSize="24sp" />
                     <TextView
@@ -47,7 +47,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/rubik"
-                        android:text="рады тебя видеть"
+                        android:text="@string/LoginTV2Text"
                         android:layout_marginBottom="24dp"
                         android:textColor="@color/textColor"
                         android:textSize="20sp" />
@@ -56,7 +56,7 @@
                 <ImageButton
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:contentDescription="return"
+                    android:contentDescription="@string/closeButtonDesc"
                     android:id="@+id/returnB"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
@@ -95,8 +95,9 @@
                         android:layout_width="60dp"
                         android:layout_height="56dp"
                         android:fontFamily="@font/rubik"
-                        android:gravity="center"
-                        android:text="+7"
+                        android:gravity="end|center"
+                        android:paddingEnd="5dp"
+                        android:text="@string/_7"
                         android:textColor="@color/textColor"
                         android:textSize="16sp" />
                     <EditText
@@ -120,7 +121,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Нет аккаунта?"
+                        android:text="@string/toRegTV1Text"
                         android:textSize="16sp"
                         android:layout_marginStart="33.5dp"
                         android:textColor="@color/textColor"
@@ -130,7 +131,7 @@
                         android:id="@+id/toRegTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" Зарегистрируйся"
+                        android:text="@string/toRegTV2Text"
                         android:textSize="16sp"
                         android:textColor="@color/lightGreen"
                         android:fontFamily="@font/rubik"

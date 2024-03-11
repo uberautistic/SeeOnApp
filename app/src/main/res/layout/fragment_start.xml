@@ -8,10 +8,11 @@
     tools:context=".splashfragments.StartFragment">
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
         android:id="@+id/startRecycler"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:showNavigationButtons="false"
-        app:infiniteCarousel="false"
+        app:infiniteCarousel="true"
         app:indicatorMargin="114dp"
         app:showIndicator="true"
         app:showCaption="false"

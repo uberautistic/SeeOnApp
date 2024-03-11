@@ -58,7 +58,7 @@
                     android:layout_height="match_parent"/>
                 <ImageButton
 
-                    android:contentDescription="return"
+                    android:contentDescription="@string/closeButtonDesc"
                     android:id="@+id/returnB"
                     android:layout_width="48dp"
                     android:layout_height="48dp"

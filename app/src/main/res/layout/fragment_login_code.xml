@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:layout_height="match_parent"
     tools:context=".loginfragments.LoginCodeFragment"
-    android:background="@color/darkGrey">
+    android:background="@drawable/app_background">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_marginTop="40dp"
         android:layout_width="335dp"

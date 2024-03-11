@@ -1,5 +1,6 @@
 package com.example.seeon.regfragments
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,12 +12,15 @@ import androidx.navigation.fragment.findNavController
 import com.example.seeon.MainActivity
 import com.example.seeon.R
 import com.example.seeon.databinding.FragmentRegPhoneBinding
+import com.example.seeon.getFormattedUserPhoneNumber
+import com.example.seeon.hideKeyboard
 import com.example.seeon.showToast
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.database.FirebaseDatabase
 import java.util.concurrent.TimeUnit
 
 
@@ -70,6 +74,7 @@ class RegPhoneFragment : Fragment() {
         }
     }
     private fun initListeners() {
+
         binding.userPhoneNumberET.addTextChangedListener {
             val phoneNumber = binding.userPhoneNumberET.text.toString()
             if (phoneNumber.length==10)
@@ -88,7 +93,30 @@ class RegPhoneFragment : Fragment() {
             }
             else{
                 binding.SHOWPROGRESS.visibility= View.VISIBLE
-                authUser()
+                val mDatabase= FirebaseDatabase.getInstance().getReference("users")
+                val check= "+7$mPhoneNumber"
+                mDatabase.child(check).get().addOnSuccessListener {
+                    if (it.exists()){
+                        binding.SHOWPROGRESS.visibility= View.VISIBLE
+                        val builder = AlertDialog.Builder(requireContext())
+                        builder.setTitle("Ошибка")
+                        builder.setMessage("Пользователь с номером:\n "+getFormattedUserPhoneNumber(check)
+                                +" Уже зарегестрирован, перейти на страницу входа?")
+                        builder.setPositiveButton("Да") { dialogInterface, which->
+                            findNavController().navigate(R.id.phoneNumberFragment)
+                            hideKeyboard()
+                        }
+                        builder.setNegativeButton("Нет"){ dialogInterface, which->
+                            binding.SHOWPROGRESS.visibility= View.INVISIBLE
+                        }
+                        val errorDialog : AlertDialog = builder.create()
+                        errorDialog.setCancelable(false)
+                        errorDialog.show()
+                    }else{
+                        binding.SHOWPROGRESS.visibility= View.VISIBLE
+                        authUser()
+                    }
+                }
             }
         }
     }

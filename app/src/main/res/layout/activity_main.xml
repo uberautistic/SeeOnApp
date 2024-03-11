@@ -24,7 +24,7 @@
         app:tabIconTintMode="src_atop"
         android:background="@color/darkGrey"
         app:tabSelectedTextColor="@color/purple"
-        android:contentDescription="menu"
+        android:contentDescription="@string/menoDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

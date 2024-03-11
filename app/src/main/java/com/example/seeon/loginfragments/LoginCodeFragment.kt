@@ -44,7 +44,7 @@ class LoginCodeFragment : Fragment() {
             }
             override fun onFinish() {
                 binding.resendCodeTV.text="Отправить код еще раз"
-                binding.resendCodeTV.setTextColor(ContextCompat.getColor(requireContext(), R.color.textColor))
+                binding.resendCodeTV.setTextColor(ContextCompat.getColor(requireActivity(), R.color.textColor))
             }
         }
         timer.start()

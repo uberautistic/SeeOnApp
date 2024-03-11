@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkGrey">
+    android:background="@drawable/app_background">
     <androidx.constraintlayout.widget.ConstraintLayout 
         android:layout_width="409dp"
         android:layout_height="match_parent" 
@@ -37,12 +37,12 @@
                 android:orientation="horizontal">
                 <TextView 
                     android:id="@+id/textView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="0dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/avenirblack"
-                    android:text="Мои билеты"
+                    android:text="@string/ticketsFragMainTVText"
                     android:textColor="@color/textColor"
                     android:textSize="24sp"
                     android:layout_marginTop="12dp"/>
@@ -51,7 +51,7 @@
                     android:layout_width="48dp" 
                     android:layout_height="48dp" 
                     android:background="@drawable/menubtn"
-                    android:contentDescription="Назад"/>
+                    android:contentDescription="@string/backBDesc"/>
             </LinearLayout>
             <LinearLayout 
                 android:layout_width="match_parent"
@@ -69,8 +69,8 @@
                 style="@style/message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Нет билетов"
-                android:layout_marginLeft="96.5dp"/>
+                android:text="@string/noTicketsMSGText"
+                android:layout_gravity="center"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

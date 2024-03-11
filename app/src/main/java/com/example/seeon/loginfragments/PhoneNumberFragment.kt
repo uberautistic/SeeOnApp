@@ -86,7 +86,7 @@ class PhoneNumberFragment : Fragment() {
                     binding.SHOWPROGRESS.visibility= View.VISIBLE
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle("Ошибка")
-                    builder.setMessage("Пользователь с номером "+getFormattedUserPhoneNumber(check)
+                    builder.setMessage("Пользователь с номером:\n "+getFormattedUserPhoneNumber(check)
                                 +" не найден в базе данных, желаете зарегистрироваться?")
                     builder.setPositiveButton("Да") { dialogInterface, which->
                         findNavController().navigate(R.id.userInfoFragment)

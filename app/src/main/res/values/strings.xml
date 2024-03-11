@@ -18,4 +18,25 @@
     <string name="welcomeText">Добро пожаловать \nв SeeOn</string>
     <string name="skipText">Пропустить</string>
     <string name="helloTV">Привет,</string>
+    <string name="_7">+7</string>
+    <string name="LoginTV1Text">Добро пожаловать</string>
+    <string name="LoginTV2Text">рады тебя видеть</string>
+    <string name="closeButtonDesc">return</string>
+    <string name="toRegTV1Text">Нет аккаунта?</string>
+    <string name="toRegTV2Text">Зарегистрируйся</string>
+    <string name="ticketsFragMainTVText">Мои билеты</string>
+    <string name="backBDesc">Назад</string>
+    <string name="noTicketsMSGText">Нет билетов</string>
+    <string name="menoDesc">menu</string>
+    <string name="accountFragMainTVText">Мой аккаунт</string>
+    <string name="accountFragTVText">Личные данные</string>
+    <string name="userNameTV">Имя</string>
+    <string name="userPhoneNumberTV">Номер телефона</string>
+    <string name="paymentMethodTV">Способ оплаты</string>
+    <string name="prostoznachok">prostoznachok</string>
+    <string name="regFragMainTVText">Регистрация</string>
+    <string name="regFragTV2Text">твоего аккаунта</string>
+    <string name="smsTV1Text">Код отправлен в SMS на номер:</string>
+    <string name="smsTV2Text">+7 (000) 000-00-00</string>
+    <string name="codeHintText">123456</string>
 </resources>

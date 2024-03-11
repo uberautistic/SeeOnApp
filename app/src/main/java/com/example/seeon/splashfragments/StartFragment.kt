@@ -37,9 +37,9 @@ class StartFragment : Fragment() {
         }
         binding.startTV.text = ContextCompat.getString(requireContext(),R.string.startText1)
         startList= ArrayList()
-        startList.add(R.drawable.start1)
-        startList.add(R.drawable.start2)
-        startList.add(R.drawable.start3)
+        startList.add(R.drawable.bg1)
+        startList.add(R.drawable.bg2)
+        startList.add(R.drawable.bg3)
         val list= mutableListOf<CarouselItem>()
         for (i in 0..<startList.size){
             list.add(
