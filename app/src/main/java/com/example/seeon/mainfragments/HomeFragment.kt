@@ -57,7 +57,7 @@ class HomeFragment : Fragment() {
         mUserTable= FirebaseDatabase.getInstance().getReference("users")
         mUserTable.child(userPhone!!).get().addOnSuccessListener {
             if (it.exists()){
-                binding.helloTV.text=ContextCompat.getString(requireContext(),R.string.helloTV)+it.child("uname").value.toString()
+                binding.helloTV.text=ContextCompat.getString(requireContext(),R.string.helloTV)+" "+it.child("uname").value.toString()
             }
         }
         binding.genresRecycler.layoutManager= LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)

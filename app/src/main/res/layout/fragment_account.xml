@@ -7,6 +7,79 @@
     android:layout_height="match_parent"
     android:background="@drawable/app_background">
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:visibility="gone"
+        android:id="@+id/addCardLayout"
+        android:elevation="2dp"
+        android:layout_marginBottom="40dp"
+        android:layout_width="335dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/lightGreen"
+        android:background="@drawable/viewpadding">
+        <EditText
+            android:gravity="center"
+            android:inputType="number"
+            android:id="@+id/cardNumberET"
+            android:textSize="16sp"
+            android:fontFamily="@font/rubik"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/darkGrey"
+            android:hint="@string/cardNumberHintText"
+            android:maxLength="16"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="17.5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <EditText
+            android:gravity="center"
+            android:inputType="number"
+            android:id="@+id/cardMMGGET"
+            android:textColorHint="@color/darkGrey"
+            android:hint="@string/MMggHintText"
+            android:maxLength="4"
+            android:textSize="16sp"
+            android:fontFamily="@font/rubik"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="17.5dp"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cardNumberET"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <EditText
+            android:gravity="center"
+            android:inputType="number"
+            android:id="@+id/cardCVCET"
+            android:maxLength="3"
+            android:hint="@string/cvcHintText"
+            android:textSize="16sp"
+            android:fontFamily="@font/rubik"
+            android:textColorHint="@color/darkGrey"
+            android:layout_marginTop="10dp"
+            android:layout_width="60dp"
+            android:layout_marginStart="17.5dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardNumberET"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addCardButtonn"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardCVCET"
+            android:backgroundTint="@color/darkGrey"
+            android:text="Добавить"
+            android:textColor="@color/lightGreen"
+            android:textSize="16sp"
+            android:fontFamily="@font/rubik"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="409dp"
         android:layout_height="match_parent"
         android:layout_marginBottom="40dp"
@@ -117,46 +190,32 @@
                     android:text="@string/paymentMethodTV"
                     android:textColor="@color/textColor"
                     android:textSize="20sp" />
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/addCardButton"
+                    android:padding="20dp"
+                    android:textSize="16sp"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/rubik"
+                    android:textColor="@color/darkGrey"
+                    android:text="@string/addCardBText"
+                    android:background="@drawable/message"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/card"
-                    android:orientation="horizontal"
-                    android:padding="20dp">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:fontFamily="@font/rubik"
-                            android:text="Тинькофф"
-                            android:textColor="@color/black"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/textView2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/rubik"
-                            android:text="выбери способ оплаты"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-                    </LinearLayout>
-
-                    <ImageView
-                        android:contentDescription="@string/prostoznachok"
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
-                        android:background="@drawable/dollar"
-                        android:src="@drawable/dollar" />
-                </LinearLayout>
+                    app:drawableRightCompat="@drawable/dollar_red" />
+                <TextView
+                    android:id="@+id/cardInfo"
+                    android:gravity="center_vertical"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/viewpadding"
+                    android:backgroundTint="@color/lightGreen"
+                    android:text="@string/cardInfoTVText"
+                    android:textColor="@color/darkGrey"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/rubik"
+                    android:padding="20dp"
+                    app:drawableRightCompat="@drawable/dollar" />
             </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

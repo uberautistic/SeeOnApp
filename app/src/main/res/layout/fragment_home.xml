@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/app_background"
     tools:context=".mainfragments.HomeFragment">
-
     <LinearLayout
         android:id="@+id/mainLayout"
         android:layout_width="335dp"
@@ -94,6 +93,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"/>
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:visibility="invisible"
                 android:id="@+id/selectCinoTheatreB"
                 android:layout_width="match_parent"
                 android:padding="20dp"

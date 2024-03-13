@@ -57,7 +57,7 @@ class CodeFragment : Fragment() {
             }
             override fun onFinish() {
                 binding.resendCodeTV.text="Отправить код еще раз"
-                binding.resendCodeTV.setTextColor(ContextCompat.getColor(requireContext(),R.color.textColor))
+                binding.resendCodeTV.setTextColor(ContextCompat.getColor(requireActivity(),R.color.textColor))
             }
         }
         timer.start()
@@ -89,6 +89,7 @@ class CodeFragment : Fragment() {
         userDataMap["uname"]=name
         userDataMap["uphoto"]=userPhotoURL
         userDataMap["ubirthdate"]=birthdate
+        userDataMap["userPaymentMethod"]=0
         mDataBase.child("users").child(phoneNumber).updateChildren(userDataMap).addOnCompleteListener { task3->
             if(task3.isSuccessful){
                 showToast(requireActivity(),"Регистрация прошла успешно!")

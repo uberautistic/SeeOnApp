@@ -16,13 +16,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SeeOn"
         tools:targetApi="31">
-
+        <activity
+            android:name=".FilmActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SeeOn" />
         <activity
             android:name=".SplasshhActivity"
             android:exported="true"
             android:theme="@style/Theme.SeeOn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -33,17 +37,13 @@
             android:name=".LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.SeeOn"
-            android:windowSoftInputMode="adjustResize">
-
-        </activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.SeeOn"
-            android:windowSoftInputMode="adjustPan">
-
-        </activity>
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>
