@@ -127,6 +127,7 @@
                         android:textColor="@color/textColor"
                         android:fontFamily="@font/rubik"/>
                     <EditText
+                        android:textColorHint="@color/fadedTextColor"
                         android:maxLength="10"
                         style="@style/editText"
                         android:paddingStart="0dp"

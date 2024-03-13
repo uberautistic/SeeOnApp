@@ -101,6 +101,7 @@
                         android:textColor="@color/textColor"
                         android:textSize="16sp" />
                     <EditText
+                        android:textColorHint="@color/fadedTextColor"
                         android:id="@+id/userPhoneNumberET"
                         style="@style/editText"
                         android:layout_width="0dp"
