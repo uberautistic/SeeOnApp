@@ -68,7 +68,7 @@
                 app:showCaption="false"/>
 
             <TextView
-                android:visibility="invisible"
+                android:visibility="visible"
                 style="@style/message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
