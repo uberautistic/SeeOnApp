@@ -84,7 +84,7 @@ class PhoneNumberFragment : Fragment() {
                     authUser()
                 }else{
                     binding.SHOWPROGRESS.visibility= View.VISIBLE
-                    val builder = AlertDialog.Builder(requireContext())
+                    val builder = AlertDialog.Builder(requireActivity())
                     builder.setTitle("Ошибка")
                     builder.setMessage("Пользователь с номером:\n "+getFormattedUserPhoneNumber(check)
                                 +" не найден в базе данных, желаете зарегистрироваться?")
@@ -102,7 +102,7 @@ class PhoneNumberFragment : Fragment() {
             }
         }
         binding.returnB.setOnClickListener {
-            val builder = AlertDialog.Builder(requireContext())
+            val builder = AlertDialog.Builder(requireActivity())
             builder.setTitle("Закрыть SeeOn?")
             builder.setNegativeButton("Да") { dialogInterface, which->
                 requireActivity().finish()

@@ -149,7 +149,6 @@ class AccountFragment : Fragment() {
                         .child(mAuth.currentUser?.phoneNumber!!)
                         .updateChildren(update)
                         .addOnSuccessListener {
-                            showToast(requireActivity(),"ok")
                             binding.addCardButton.visibility=View.GONE
                             binding.cardInfo.visibility=View.VISIBLE
                             val lastDigits=number.substring(15,19)
@@ -164,7 +163,6 @@ class AccountFragment : Fragment() {
                         .child(mAuth.currentUser?.phoneNumber!!)
                         .updateChildren(paymentMethodData)
                         .addOnSuccessListener {
-                            showToast(requireActivity(),"ok2")
                         }
                     binding.addCardLayout.visibility=View.GONE
                 } else
@@ -205,23 +203,23 @@ class AccountFragment : Fragment() {
     override fun onContextItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.accountMenuItem->{
-                showToast(requireContext(),"account management")
+                showToast(requireActivity(),"account management")
                 return true
             }
             R.id.notificationsMenuItem->{
-                showToast(requireContext(),"notifications")
+                showToast(requireActivity(),"notifications")
                 return true
             }
             R.id.cinemaMenuItem->{
-                showToast(requireContext(),"cinema")
+                showToast(requireActivity(),"cinema")
                 return true
             }
             R.id.savedMenuItem->{
-                showToast(requireContext(),"saved")
+                showToast(requireActivity(),"saved")
                 return true
             }
             R.id.supportMenuItem->{
-                showToast(requireContext(),"support")
+                showToast(requireActivity(),"support")
                 return true
             }
             R.id.logoutMenuItem->{

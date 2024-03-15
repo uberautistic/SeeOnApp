@@ -63,10 +63,10 @@ class LoginCodeFragment : Fragment() {
         val credential= PhoneAuthProvider.getCredential(id, code)
         mAuth.signInWithCredential(credential).addOnCompleteListener { task1->
             if(task1.isSuccessful){
-                showToast(requireContext(),"success")
+                showToast(requireActivity(),"Добро пожаловать!")
                 replaceActivity(MainActivity())
             } else {
-                showToast(requireContext(),task1.exception.toString())
+                showToast(requireActivity(),task1.exception.toString())
             }
         }
     }

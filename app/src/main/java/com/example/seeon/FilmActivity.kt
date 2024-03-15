@@ -11,5 +11,14 @@ class FilmActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ContentFilmBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val url= intent.getStringExtra("URL")
+        binding.webView.loadUrl(url!!)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        binding.backButton.setOnClickListener {
+            this.finish()
+        }
     }
 }

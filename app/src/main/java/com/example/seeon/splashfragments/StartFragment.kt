@@ -35,7 +35,7 @@ class StartFragment : Fragment() {
         binding.skipTV.setOnClickListener {
             replaceActivity(LoginActivity())
         }
-        binding.startTV.text = ContextCompat.getString(requireContext(),R.string.startText1)
+        binding.startTV.text = ContextCompat.getString(requireActivity(),R.string.startText1)
         startList= ArrayList()
         startList.add(R.drawable.bg1)
         startList.add(R.drawable.bg2)
@@ -60,20 +60,20 @@ class StartFragment : Fragment() {
                 carouselItem: CarouselItem?
             ) {
                 when(position){
-                    0->binding.startTV.text = ContextCompat.getString(requireContext(),R.string.startText1)
-                    1->binding.startTV.text = ContextCompat.getString(requireContext(),R.string.startText2)
-                    2->binding.startTV.text = ContextCompat.getString(requireContext(),R.string.startText3)
+                    0->binding.startTV.text = ContextCompat.getString(requireActivity(),R.string.startText1)
+                    1->binding.startTV.text = ContextCompat.getString(requireActivity(),R.string.startText2)
+                    2->binding.startTV.text = ContextCompat.getString(requireActivity(),R.string.startText3)
                 }
             }
         }
         binding.nextB.setOnClickListener {
             when(binding.startRecycler.currentPosition){
                 0->{
-                    binding.startTV.text = ContextCompat.getString(requireContext(),R.string.startText2)
+                    binding.startTV.text = ContextCompat.getString(requireActivity(),R.string.startText2)
                     binding.startRecycler.next()
                 }
                 1->{
-                    binding.startTV.text = ContextCompat.getString(requireContext(),R.string.startText3)
+                    binding.startTV.text = ContextCompat.getString(requireActivity(),R.string.startText3)
                     binding.startRecycler.next()
                 }
                 2-> replaceActivity(LoginActivity())

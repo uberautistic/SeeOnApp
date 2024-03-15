@@ -56,16 +56,19 @@
             <LinearLayout 
                 android:layout_width="match_parent"
                 android:layout_height="40dp"/>
-
-            <androidx.recyclerview.widget.RecyclerView
+            <org.imaginativeworld.whynotimagecarousel.ImageCarousel
                 android:layout_width="match_parent"
                 android:layout_height="480dp"
-                android:padding="40dp"
                 android:background="@drawable/tickets_scrollview_back"
-                android:layout_marginBottom="24dp">
+                android:padding="40dp"
+                android:layout_marginBottom="24dp"
+                app:showNavigationButtons="false"
+                app:showBottomShadow="false"
+                app:showTopShadow="false"
+                app:showCaption="false"/>
 
-            </androidx.recyclerview.widget.RecyclerView>
-            <TextView 
+            <TextView
+                android:visibility="invisible"
                 style="@style/message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

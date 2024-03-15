@@ -111,7 +111,6 @@ class CodeFragment : Fragment() {
                     val photoUri= Uri.parse(stringPhotoUri)
                     path.putFile(photoUri).addOnCompleteListener{task2->
                         if (task2.isSuccessful){
-                            showToast(requireActivity(),"Фото успешно загружено")
                             path.downloadUrl.addOnCompleteListener {
                                 if (it.isSuccessful){
                                     userPhotoURL=it.result.toString()

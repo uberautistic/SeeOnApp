@@ -1,5 +1,6 @@
 package com.example.seeon.mainfragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.ContextMenu
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
+import com.example.seeon.FilmActivity
 import com.example.seeon.LoginActivity
 import com.example.seeon.R
 import com.example.seeon.adapter.GenresAdapter
@@ -57,21 +59,17 @@ class HomeFragment : Fragment() {
         mUserTable= FirebaseDatabase.getInstance().getReference("users")
         mUserTable.child(userPhone!!).get().addOnSuccessListener {
             if (it.exists()){
-                binding.helloTV.text=ContextCompat.getString(requireContext(),R.string.helloTV)+" "+it.child("uname").value.toString()
+                binding.helloTV.text=ContextCompat.getString(requireActivity(),R.string.helloTV)+" "+it.child("uname").value.toString()
             }
         }
-        binding.genresRecycler.layoutManager= LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
+        binding.genresRecycler.layoutManager= LinearLayoutManager(requireActivity(), RecyclerView.HORIZONTAL, false)
         initGenresList()
-        initFilmsList()
-        binding.genresRecycler.adapter= GenresAdapter(requireContext(), genresList)
+        binding.genresRecycler.adapter= GenresAdapter(requireActivity(), genresList)
         val list= mutableListOf<CarouselItem>()
-        for (i in 0..<filmsList.size){
-            list.add(
-                CarouselItem(
-                    imageDrawable = filmsList[i]
-                )
-            )
-        }
+        list.add(CarouselItem(imageDrawable = R.drawable.barbie, caption = "https://nvaunity.github.io/SeeOn/barbie"))
+        list.add(CarouselItem(imageDrawable = R.drawable.gotg3, caption = "https://nvaunity.github.io/SeeOn/gotg3"))
+        list.add(CarouselItem(imageDrawable = R.drawable.smatsv, caption ="https://nvaunity.github.io/SeeOn/tmatsv"))
+        list.add(CarouselItem(imageDrawable = R.drawable.oppenheimer, caption = "https://nvaunity.github.io/SeeOn/oppenheimer"))
         binding.filmsRecycler.setData(list)
         binding.filmsRecycler.autoPlay=true
         binding.filmsRecycler.autoPlayDelay=8000
@@ -85,14 +83,14 @@ class HomeFragment : Fragment() {
             }
             override fun onBindViewHolder(binding: ViewBinding, item: CarouselItem, position: Int) {
                 val currentBinding = binding as FilmRecyclerItemBinding
-
-
                 currentBinding.imageView.apply {
-
                     setImage(item)
                 }
                 currentBinding.imageView.setOnClickListener {
-                    showToast(requireContext(), position.toString())
+                    val url=item.caption
+                    val filmPage= Intent(requireActivity(),FilmActivity::class.java)
+                    filmPage.putExtra("URL", url)
+                    startActivity(filmPage)
                 }
             }
         }
@@ -112,19 +110,19 @@ class HomeFragment : Fragment() {
     override fun onContextItemSelected(item: MenuItem): Boolean {
          when(item.itemId){
             R.id.notificationsMenuItem->{
-                showToast(requireContext(),"notifications")
+                showToast(requireActivity(),"notifications")
                 return true
             }
             R.id.cinemaMenuItem->{
-                showToast(requireContext(),"cinema")
+                showToast(requireActivity(),"cinema")
                 return true
             }
             R.id.savedMenuItem->{
-                showToast(requireContext(),"saved")
+                showToast(requireActivity(),"saved")
                 return true
             }
             R.id.supportMenuItem->{
-                showToast(requireContext(),"support")
+                showToast(requireActivity(),"support")
                 return true
             }
              R.id.logoutMenuItem->{
@@ -143,12 +141,6 @@ class HomeFragment : Fragment() {
         genresList.add(R.drawable.fantasy)
         genresList.add(R.drawable.melodrama)
         genresList.add(R.drawable.thriller)
-    }
-    private fun initFilmsList(){
-        filmsList= ArrayList()
-        filmsList.add(R.drawable.barbie)
-        filmsList.add(R.drawable.gotg3)
-        filmsList.add(R.drawable.smatsv)
     }
 
 

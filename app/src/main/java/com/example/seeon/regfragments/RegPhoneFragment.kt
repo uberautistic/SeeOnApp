@@ -98,7 +98,7 @@ class RegPhoneFragment : Fragment() {
                 mDatabase.child(check).get().addOnSuccessListener {
                     if (it.exists()){
                         binding.SHOWPROGRESS.visibility= View.VISIBLE
-                        val builder = AlertDialog.Builder(requireContext())
+                        val builder = AlertDialog.Builder(requireActivity())
                         builder.setTitle("Ошибка")
                         builder.setMessage("Пользователь с номером:\n "+getFormattedUserPhoneNumber(check)
                                 +" Уже зарегестрирован, перейти на страницу входа?")
